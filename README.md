@@ -1,5 +1,4 @@
 # Adobe Anaytics Datafeed SQL
 
-##aa-fallout.sql
-
+## aa-fallout.sql
 Datafeedからフォールアウトレポートを作成するSQLサンプルです。
