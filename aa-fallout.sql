@@ -3,7 +3,7 @@ with base as (
   union all
   select 2 as step, 'search' as pagename
   union all
-  select 3 as step, 'service' as pagename
+  select 3 as step, 'services' as pagename
   union all
   select 4 as step, 'inquiry' as pagename
   union all
