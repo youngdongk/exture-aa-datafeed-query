@@ -11,7 +11,7 @@ with base as (
 )
 , aa_fallout as (
   select
-    concat(h.visid_high, h.visid_low, cast(visit_num as string)) as session
+    concat(h.post_visid_high, h.post_visid_low, cast(visit_num as string)) as session
     ,b.step
     ,b.pagename
     ,max(h.hit_time_gmt) as max_time
