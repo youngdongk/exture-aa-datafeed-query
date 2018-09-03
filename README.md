@@ -8,4 +8,8 @@ https://ex-ture.com/blog/2018/08/01/aa-datafeed-to-create-fallout-report-on-bigq
 
 ## extra_list_var
 
-http://ex-ture.com/blog/2018/08/22/aa-extra-list-vars-by-gcp
+https://ex-ture.com/blog/2018/08/22/aa-extra-list-vars-by-gcp/
+
+## aa-pathflow.sql
+
+https://ex-ture.com/blog/2018/09/03/aa-datafeed-to-create-pathflow-report-on-bigquery/
