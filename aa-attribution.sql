@@ -3,7 +3,7 @@ WITH
   SELECT
     CONCAT(post_visid_high, post_visid_low) AS vid,
     hit_time_gmt,
-    SPLIT(post_evar11, ',')[OFFSET(0)] AS cmpid,
+    post_campaign AS cmpid,
     SIGN(SUM(CASE
           WHEN CONCAT(',', post_event_list, ',') LIKE '%,201,%' THEN 1
           ELSE 0 END) OVER(PARTITION BY CONCAT(post_visid_high, post_visid_low)
@@ -35,7 +35,8 @@ SELECT
 FROM
   t1
 WHERE
-  cvflag = 1 cmpid IS NOT NULL
+  cvflag = 1
+  AND cmpid IS NOT NULL
 ORDER BY
   vid,
   hit_time_gmt
