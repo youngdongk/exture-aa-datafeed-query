@@ -14,7 +14,7 @@ WITH
     `exture.hit_data`
   WHERE
     DATE(hit_time_gmt, 'Asia/Tokyo') >= '2018-10-01'
-    AND DATE(hit_time_gmt, 'Asia/Tokyo') < '2018-10-31'
+    AND DATE(hit_time_gmt, 'Asia/Tokyo') < '2018-11-01'
     AND exclude_hit = 0 )
 SELECT
   vid,
