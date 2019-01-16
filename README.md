@@ -13,3 +13,7 @@ https://ex-ture.com/blog/2018/08/22/aa-extra-list-vars-by-gcp/
 ## aa-pathflow.sql
 
 https://ex-ture.com/blog/2018/09/03/aa-datafeed-to-create-pathflow-report-on-bigquery/
+
+## get_web_beacon
+
+http://ex-ture.com/blog/2019/01/16/store-aa-and-ga-beacon-url-to-biquery/
