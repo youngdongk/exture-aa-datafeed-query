@@ -6,6 +6,13 @@ app.set('trust proxy', true);
 
 const {PubSub} = require('@google-cloud/pubsub');
 const projectId = 'YOUR-PROJECTID-HERE';
+const topicName = 'YOUR-TOPIC-NAME';
+
+async function createTopic(topicName) {
+  const {PubSub} = require('@google-cloud/pubsub');
+  const pubsub = new PubSub();
+  await pubsub.createTopic(topicName);
+}
 
 app.get('/b', (req, res) => {
     
@@ -27,17 +34,7 @@ app.get('/b', (req, res) => {
 
     const dataBuffer = Buffer.from(strdata);
 
-    pubsub
-        .topic("projects/YOUR-PROJECTID-HERE/topics/beacon")
-        .publisher()
-        .publish(dataBuffer)
-        .then(results => {
-            const messageId = results[0];
-            console.log(`Message ${messageId} published.`);
-        })
-        .catch(err => {
-            console.error('ERROR:', err);
-        });
+    createTopic(topicName);
 
     res.status(200)
         .set('Content-Type', 'image/gif').end();
