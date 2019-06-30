@@ -4,21 +4,19 @@ const express = require('express');
 const app = express();
 app.set('trust proxy', true);
 
-const {PubSub} = require('@google-cloud/pubsub');
 const projectId = 'YOUR-PROJECTID-HERE';
 const topicName = 'YOUR-TOPIC-NAME';
 
-async function createTopic(topicName) {
+async function publishMessage(topicName, data) {
   const {PubSub} = require('@google-cloud/pubsub');
-  const pubsub = new PubSub();
-  await pubsub.createTopic(topicName);
+  const pubsub = new PubSub({
+      projectId: projectId
+  });
+  const dataBuffer = Buffer.from(data);
+  const messageId = await pubsub.topic(topicName).publish(dataBuffer);
 }
 
 app.get('/b', (req, res) => {
-    
-    const pubsub = new PubSub({
-        projectId: projectId,
-    });
     
     var d = new Date();
     var hit_time = Math.floor(d.getTime() / 1000);
@@ -31,10 +29,7 @@ app.get('/b', (req, res) => {
     data["log"] = req.query['l'];
 
     var strdata = JSON.stringify(data);
-
-    const dataBuffer = Buffer.from(strdata);
-
-    createTopic(topicName);
+    publishMessage(topicName, strdata);
 
     res.status(200)
         .set('Content-Type', 'image/gif').end();
